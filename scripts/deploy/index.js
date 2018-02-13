@@ -25,7 +25,7 @@ const search = () => new Promise((resolve) => {
 
   git.branchLocal((err, summary) => {
     Promise
-      .all(summary.all.map(async (branch) => `${branch} (${await getCommitMessage(branch)})`))
+      .all(summary.all.map(async (branch) => `${branch} (last commit: ${await getCommitMessage(branch)})`))
       .then(close)
   })
 })
@@ -39,21 +39,22 @@ const push = (branch, server) => new Promise((resolve) => {
   const interval = setInterval(toggleSpinner, 500)
   const close = (branches) => {
     clearInterval(interval)
-    spinner.stopAndPersist({ text: `Code is deployed!  ${party}  ${party}  ${party}` })
+    spinner.stop()
     resolve(branches)
   }
-  setInterval(close, 5000)
+  setInterval(close, 8000)
 })
 
 const deploy = (server) => {
   return async () => {
     const branches = await search()
-    const branch = branches.length > 1
+    const branch = (branches.length > 1
       ? await go.ask({ message: 'choose branch to deploy', choices: branches })
-      : branches[0]
+      : branches[0]).split(' ')[0]
 
     if (await go.confirm(`Are you sure you want deploy ${chalk.underline(branch)} to ${chalk.underline(server)}?`, false)) {
       await push(branch, server)
+      console.log(`Code is deployed!  ${party}  ${party}  ${party}`)
       console.log('Now go, and write more code!')
     } else {
       console.log('Good choice! Let\'s run more tests first')
