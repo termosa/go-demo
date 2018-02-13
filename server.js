@@ -1,0 +1,3 @@
+const qinu = require('qinu')
+
+qinu() //...

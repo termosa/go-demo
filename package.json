@@ -1,0 +1,21 @@
+{
+  "name": "temp",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stanislav Termosa <termosa.stanislav@gmail.com> (https://github.com/termosa)",
+  "license": "MIT",
+  "dependencies": {
+    "git-clone": "^0.1.0",
+    "go": "^3.0.0-rc.5",
+    "go-plugin-cli": "file:../go-plugin-cli/go-plugin-cli-2.0.0.tgz",
+    "go-plugin-fs": "file:../go-plugin-fs/go-plugin-fs-1.0.2.tgz",
+    "go-plugin-quiz": "^3.0.0",
+    "inquirer": "^5.1.0",
+    "opn": "^5.2.0",
+    "qinu": "^2.0.0"
+  }
+}

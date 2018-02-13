@@ -1,0 +1,7 @@
+
+ Get Started
+
+What will be here? It is up to you. Currently, this document here just as an
+example. So, that means you can not only print information to console but open
+local files of any type, as well as links on the web.
+
