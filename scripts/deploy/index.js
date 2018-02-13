@@ -5,6 +5,12 @@ const git = require('simple-git')(process.cwd())
 
 const party = '🎉'
 
+const getCommitMessage = (branch) => new Promise(resolve => {
+  git.log([branch], (err, summary) => {
+    resolve(summary.latest.message.replace(/\s+\([^\(]*\)$/, ''))
+  })
+})
+
 const search = () => new Promise((resolve) => {
   const text1 = 'load branches..'
   const text2 = 'load branches...'
@@ -17,7 +23,11 @@ const search = () => new Promise((resolve) => {
     resolve(branches)
   }
 
-  git.branchLocal((err, summary) => close(summary.all))
+  git.branchLocal((err, summary) => {
+    Promise
+      .all(summary.all.map(async (branch) => `${branch} (${await getCommitMessage(branch)})`))
+      .then(close)
+  })
 })
 
 const push = (branch, server) => new Promise((resolve) => {
