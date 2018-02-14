@@ -1,0 +1,3 @@
+{
+  "install": "npm install && echo '\nnow go to the directory and run $ go'"
+}

@@ -13,13 +13,11 @@
     "fuzzy": "^0.1.3",
     "git-clone": "^0.1.0",
     "go": "^3.0.0-rc.5",
-    "go-plugin-cli": "file:../go-plugin-cli/go-plugin-cli-2.0.0.tgz",
-    "go-plugin-fs": "file:../go-plugin-fs/go-plugin-fs-1.0.2.tgz",
+    "go-plugin-cli": "file:packages/go-plugin-cli-2.0.0.tgz",
+    "go-plugin-fs": "file:packages/go-plugin-fs-1.0.2.tgz",
     "go-plugin-quiz": "^3.0.0",
-    "inquirer": "^5.1.0",
     "opn": "^5.2.0",
     "ora": "^1.4.0",
-    "qinu": "^2.0.0",
     "simple-git": "^1.89.0"
   }
 }
